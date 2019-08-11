@@ -13,6 +13,11 @@ ports:
   onOpen: ignore
 
 tasks:
+- name: git-config
+  before: >
+    username="$(git config user.name)"
+    git remote set-url origin "https://github.com/$username/freeCodeCamp.git"
+
 - name: db
   # starting mongo in background, so it doesn't block prebuilds
   before: >
