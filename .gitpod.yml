@@ -15,9 +15,7 @@ ports:
 tasks:
 - name: git-config
   before: >
-    username="$(git config user.name)"
-    echo $username
-    git remote set-url origin "https://github.com/freeCodeCamp/freeCodeCamp.git"
+    username="$(git config user.name)" && echo $username && git remote set-url origin "https://github.com/freeCodeCamp/freeCodeCamp.git"
 
 - name: db
   # starting mongo in background, so it doesn't block prebuilds
